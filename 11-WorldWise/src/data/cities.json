@@ -1,0 +1,112 @@
+{
+  "cities": [
+    {
+      "cityName": "Lisbon",
+      "country": "Portugal",
+      "emoji": "🇵🇹",
+      "date": "2027-10-31T15:59:59.138Z",
+      "notes": "My favorite city so far!",
+      "position": {
+        "lat": 38.727881642324164,
+        "lng": -9.140900099907554
+      },
+      "id": "73930385"
+    },
+    {
+      "cityName": "Madrid",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2027-07-15T08:22:53.976Z",
+      "notes": "",
+      "position": {
+        "lat": 40.46635901755316,
+        "lng": -3.7133789062500004
+      },
+      "id": "17806751"
+    },
+    {
+      "cityName": "Berlin",
+      "country": "Germany",
+      "emoji": "🇩🇪",
+      "date": "2027-02-12T09:24:11.863Z",
+      "notes": "Amazing 😃",
+      "position": {
+        "lat": 52.53586782505711,
+        "lng": 13.376933665713324
+      },
+      "id": "98443197"
+    },
+    {
+      "id": "5cde",
+      "cityName": "Castello de la Plana",
+      "country": "Castello de la Plana",
+      "emoji": "🇪🇸",
+      "date": "2024-09-23T21:54:01.538Z",
+      "notes": "",
+      "position": {
+        "lat": "40.00828898487092",
+        "lng": "0.012016296386718752"
+      }
+    },
+    {
+      "id": "09e8",
+      "cityName": "Alexandria",
+      "country": "Alexandria",
+      "emoji": "🇪🇬",
+      "date": "2024-09-23T21:55:00.671Z",
+      "notes": "",
+      "position": {
+        "lat": "31.17309051357228",
+        "lng": "29.897904836735922"
+      }
+    },
+    {
+      "id": "8f9e",
+      "cityName": "Markaz al Waḩat ad Dakhilah",
+      "country": "Markaz al Waḩat ad Dakhilah",
+      "emoji": "🇪🇬",
+      "date": "2024-09-24T03:17:34.477Z",
+      "notes": "",
+      "position": {
+        "lat": "25.611809521055477",
+        "lng": "29.355468750000004"
+      }
+    },
+    {
+      "id": "8ebc",
+      "cityName": "Medina",
+      "country": "Medina",
+      "emoji": "🇸🇦",
+      "date": "2024-09-24T15:00:51.664Z",
+      "notes": "My Love",
+      "position": {
+        "lat": "24.297040469311572",
+        "lng": "39.78149414062501"
+      }
+    },
+    {
+      "id": "9aec",
+      "cityName": "Al ‘Ashir min Ramaḑan",
+      "country": "Al ‘Ashir min Ramaḑan",
+      "emoji": "🇪🇬",
+      "date": "2024-09-24T19:07:54.754Z",
+      "notes": "",
+      "position": {
+        "lat": "30.30531155491787",
+        "lng": "31.73812866210938"
+      }
+    },
+    {
+      "id": "3e11",
+      "cityName": "Tripoli",
+      "country": "Tripoli",
+      "emoji": "🇱🇾",
+      "date": "2024-10-03T04:21:21.299Z",
+      "notes": "",
+      "position": {
+        "lat": "32.87592630428602",
+        "lng": "13.221508136444566"
+      }
+    }
+  ]
+}
