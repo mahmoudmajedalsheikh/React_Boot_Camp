@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {deposit,withdrawal,requestLoan,payLoan} from "./accountSlice";
 
 function AccountOperations() {
   const [depositAmount, setDepositAmount] = useState("");
@@ -7,13 +9,36 @@ function AccountOperations() {
   const [loanPurpose, setLoanPurpose] = useState("");
   const [currency, setCurrency] = useState("USD");
 
-  function handleDeposit() {}
+  const  dispatch = useDispatch()
 
-  function handleWithdrawal() {}
+  const {loan:currentLoan,loanPurpose:currentLoanPurpose,balance ,isLoading} = useSelector((state)=> state.account);
+  // console.log(balance);
 
-  function handleRequestLoan() {}
+  function handleDeposit() {
+    if(!depositAmount) return;
 
-  function handlePayLoan() {}
+    dispatch(deposit(depositAmount,currency))
+    // depositAmount("");
+    setCurrency("");
+  }
+
+  function handleWithdrawal(withdrawalAmount) {
+    if(!withdrawalAmount || !loanPurpose) return;
+    dispatch(withdrawal(withdrawalAmount))
+    setWithdrawalAmount("");
+  }
+
+  function handleRequestLoan(loanAmount) {
+    if(!loanAmount) return;
+    dispatch(requestLoan(loanAmount))
+    setLoanAmount('');
+    setLoanPurpose('');
+  }
+
+  function handlePayLoan() {
+    dispatch(payLoan())
+  }
+
 
   return (
     <div>
@@ -35,7 +60,12 @@ function AccountOperations() {
             <option value="GBP">British Pound</option>
           </select>
 
-          <button onClick={handleDeposit}>Deposit {depositAmount}</button>
+          <button onClick={handleDeposit} disabled={isLoading} >
+            {isLoading ? 'Coverting....':
+              `Deposit ${depositAmount}`
+            }
+
+          </button>
         </div>
 
         <div>
@@ -66,10 +96,11 @@ function AccountOperations() {
           <button onClick={handleRequestLoan}>Request loan</button>
         </div>
 
-        <div>
-          <span>Pay back $X</span>
+{ currentLoan > 0   &&  <div>
+          <span>Pay back {currentLoan}({currentLoanPurpose})</span>
           <button onClick={handlePayLoan}>Pay loan</button>
-        </div>
+        </div>}
+
       </div>
     </div>
   );
