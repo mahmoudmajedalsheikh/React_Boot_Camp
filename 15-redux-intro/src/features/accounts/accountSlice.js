@@ -47,14 +47,13 @@ export default function accountReducer (state = initialStateAccount,action){
 }
 
 
-
-
 export function deposit (amount,currency){
   if(currency === "USD" )
   return{
     type:ACCOUNT_DEPOSIT,
     payload:amount
   }
+  
   return async function (dispatch,getState){
     dispatch({type:'account/convertingCurrency'});
 
