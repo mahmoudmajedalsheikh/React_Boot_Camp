@@ -3,33 +3,36 @@ import { useDispatch, useSelector } from "react-redux";
 import {deposit,withdrawal,requestLoan,payLoan} from "./accountSlice";
 
 function AccountOperations() {
+
   const [depositAmount, setDepositAmount] = useState("");
   const [withdrawalAmount, setWithdrawalAmount] = useState("");
   const [loanAmount, setLoanAmount] = useState("");
+
   const [loanPurpose, setLoanPurpose] = useState("");
   const [currency, setCurrency] = useState("USD");
 
   const  dispatch = useDispatch()
 
-  const {loan:currentLoan,loanPurpose:currentLoanPurpose,balance ,isLoading} = useSelector((state)=> state.account);
+  const {loan:currentLoan,loanPurpose:currentLoanPurpose,isLoading} = useSelector((state)=> state);
   // console.log(balance);
 
   function handleDeposit() {
     if(!depositAmount) return;
-
-    dispatch(deposit(depositAmount,currency))
-    // depositAmount("");
-    setCurrency("");
+    // dispatch(deposit(depositAmount,currency))
+    // dispatch(deposit(depositAmount));
+    setDepositAmount("");
+    setCurrency("USD");
   }
 
   function handleWithdrawal(withdrawalAmount) {
-    if(!withdrawalAmount || !loanPurpose) return;
+    if(!withdrawalAmount) return;
+    // console.log(withdrawalAmount)
     dispatch(withdrawal(withdrawalAmount))
     setWithdrawalAmount("");
   }
 
   function handleRequestLoan(loanAmount) {
-    if(!loanAmount) return;
+    if(!loanAmount || !loanPurpose) return;
     dispatch(requestLoan(loanAmount))
     setLoanAmount('');
     setLoanPurpose('');
@@ -59,7 +62,6 @@ function AccountOperations() {
             <option value="EUR">Euro</option>
             <option value="GBP">British Pound</option>
           </select>
-
           <button onClick={handleDeposit} disabled={isLoading} >
             {isLoading ? 'Coverting....':
               `Deposit ${depositAmount}`
@@ -73,7 +75,7 @@ function AccountOperations() {
           <input
             type="number"
             value={withdrawalAmount}
-            onChange={(e) => setWithdrawalAmount(+e.target.value)}
+            onChange={(e) =>setWithdrawalAmount(+e.target.value)}
           />
           <button onClick={handleWithdrawal}>
             Withdraw {withdrawalAmount}
@@ -88,6 +90,7 @@ function AccountOperations() {
             onChange={(e) => setLoanAmount(+e.target.value)}
             placeholder="Loan amount"
           />
+
           <input
             value={loanPurpose}
             onChange={(e) => setLoanPurpose(e.target.value)}

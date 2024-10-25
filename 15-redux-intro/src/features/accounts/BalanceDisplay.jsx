@@ -14,7 +14,7 @@ function BalanceDisplay({balance}) {
 
 function mapStateProps(state){
   return{
-    balance:state.account.balance
+    balance:state.accountReducer.balance
   }
 }
 
