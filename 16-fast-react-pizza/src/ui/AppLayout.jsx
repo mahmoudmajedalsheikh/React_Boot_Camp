@@ -7,19 +7,24 @@ const AppLayout = () => {
   const navigation = useNavigation()
   const isLoading = navigation.state === "loading";
   // console.log(navigation)
-  return (
-    <div className="layout">
+  return (<>
+  <div className="h-screen flex flex-col justify-between ">
       {isLoading && <Loader/>}
       <Header/>
-      <main>
+      <div className=" h-full my-10 overflow-scroll flex flex-col  justify-center">
+        <main className="h-full">
         <h1>Hello Pizza</h1>
-        <Outlet/>
-        <Link to='/cart'>Open cart &rarr; </Link>
-      </main>
+          <Outlet/>
+        <Link to='/cart' className=" ">Open cart &rarr; </Link>
+        </main>
+      </div>
+      <div className=" flex w-screen items-end">
+        <CartOverview/>
+      </div>
 
-      <CartOverview/>
-    </div>
-  )
+  </div>
+
+</>)
 }
 
 export default AppLayout;
