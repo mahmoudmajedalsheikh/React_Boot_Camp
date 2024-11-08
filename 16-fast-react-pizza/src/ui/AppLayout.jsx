@@ -1,30 +1,30 @@
-import { Link, Outlet, useNavigate, useNavigation } from "react-router-dom";
-import Header from "./Header";
-import CartOverview from '../features/cart/CartOverview'
-import Loader from "./Loader";
+import { Outlet, useNavigation } from 'react-router-dom';
+import Header from './Header';
+import CartOverview from '../features/cart/CartOverview';
+import Loader from './Loader';
 
 const AppLayout = () => {
-  const navigation = useNavigation()
-  const isLoading = navigation.state === "loading";
+  const navigation = useNavigation();
+  const isLoading = navigation.state === 'loading';
   // console.log(navigation)
-  return (<>
-  <div className="h-screen flex flex-col justify-between ">
-      {isLoading && <Loader/>}
-      <Header/>
-      <div className=" h-full my-10 overflow-scroll flex flex-col  justify-center">
-        <main className="h-full">
-        <h1>Hello Pizza</h1>
-          <Outlet/>
-        <Link to='/cart' className=" ">Open cart &rarr; </Link>
-        </main>
-      </div>
-      <div className=" flex w-screen items-end">
-        <CartOverview/>
-      </div>
 
-  </div>
-
-</>)
-}
+  return (
+    <>
+      <div className="h-screen flex flex-col justify-between ">
+        {isLoading && <Loader />}
+        <Header />
+        <div className=" h-full  overflow-scroll flex flex-col  justify-center content-center  ml-auto mr-auto md:ml-[220px] md:mr-[220px]">
+          <main className="h-full w-full basis-8/10 justify-center  content-center">
+            {/* <h1>Hello Pizza</h1> */}
+            <Outlet />
+          </main>
+        </div>
+        <div className=" flex w-screen items-end">
+          <CartOverview />
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default AppLayout;

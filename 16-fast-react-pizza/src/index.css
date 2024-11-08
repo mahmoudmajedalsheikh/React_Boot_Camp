@@ -2,10 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
-  padding: 0;
-  margin: 0;
-}
+
 
 *::-webkit-scrollbar {
   display: none;
@@ -16,7 +13,7 @@
   .input{
     @apply  rounded-full border border-stone-100 px-4 py-2 mx-2
     text-sm transition-all  duration-300 placeholder:text-stone-400 
-    focus:outline-none focus:ring  focus:ring-yellow-400 w-full 
+    focus:outline-none focus:ring  focus:ring-yellow-400 
     md:px-6 md:py-3 sm:py-4 sm:px-6
   }
 
