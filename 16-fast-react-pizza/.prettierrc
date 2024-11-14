@@ -1,0 +1,4 @@
+{
+  "singleQuote": true,
+  "tailwindConfig": "./styles/tailwind.config.js"
+}
